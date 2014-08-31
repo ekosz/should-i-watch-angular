@@ -1,0 +1,55 @@
+<div class='container'>
+  <div class='movie'>
+    <div class="image_container">
+      <img alt="poster" ng-src="{{poster.imageLocation}}" class="image">
+    </div>
+
+    <div class="score_details">
+      <div class="spinner" ng-show="loading">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+
+      <div class='score'>{{movie.totalScore}}</div>
+      <div class='suggestion'>{{movie.shouldIWatch}}</div>
+      <div class='search_again suggestion'>
+        <a href="#/" class="white-link">Search Again?</a> |
+        <span ng-click="moreInfoNeeded = (moreInfoNeeded ? false : true)" class="more-info-link">More info</span> |
+        <a ng-href="{{imdbID}}" class='white-link' target="_blank">IMDB</a></div>
+    </div>
+  </div>
+
+  <div ng-show="moreInfoNeeded">
+    <div class='formula'>
+      <ul>
+        <li>Tomato meter: {{movie.tomatoMeter}}</li>
+        <li>Tomato rating: {{movie.tomatoRating}}</li>
+        <li>Total tomato critics counted: {{movie.tomatoVotes}}</li>
+        <li>Tomato user meter: {{movie.tomatoUserMeter}}</li>
+        <li>Tomato user rating: {{movie.tomatoUserRating}}</li>
+        <li>Total tomato users counted: {{movie.tomatoUserVotes}}</li>
+        <li>IMDB user rating: {{movie.imdbRating}}</li>
+        <li>Total IMDB votes: {{movie.imdbVotes}}</li>
+        <li>Metascore: {{movie.metascore}}</li>
+        <li>Image taken from themoviedb.org</li>
+      </ul>
+    </div>
+
+    <div class='more-info'>
+      <ul>
+        <li>Title: {{movie.title}}</li>
+        <li>Release: {{movie.released}}</li>
+        <li>Runtime: {{movie.runtime}}</li>
+        <li>Director: {{movie.director}}</li>
+        <li>Written by: {{movie.writer}}</li>
+        <li>Starring: {{movie.actors}}</li>
+        <li>{{movie.plot}}</li>
+        <li>Languages: {{movie.language}}</li>
+        <li>Rating: {{movie.rated}}</li>
+        <li>Consensus: {{movie.tomatoConsensus}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+

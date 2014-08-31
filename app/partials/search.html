@@ -1,0 +1,30 @@
+<div class='search'>
+  <div class='title'>Should I watch...</div>
+  <form ng-submit='search()'>
+    <input class='search-box' name='search' ng-model='query'>
+  </form>
+  <div class='description'>Type in a movie or TV show to get a computed rating and suggestion based on Rotten Tomatoes, IMDB, and Metacritic.</div>
+</div>
+
+<div class="spinner" ng-show="searching">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+
+<div id='results' ng-hide="searching || movies.length == 0">
+  <table class="table-fill">
+    <tbody class='table-hover'>
+      <tr ng-repeat="movie in movies" ng-click="goToMovie(movie.imdbID)">
+        <td>{{movie.Title}}</td>
+        <td>{{movie.Year}}</td>
+        <td>{{movie.Type}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="social">
+  <a href="https://github.com/timminkov/should-i-watch" class="icon github" ></a>
+</div>
+
